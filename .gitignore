@@ -1,0 +1,21 @@
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Recipient data and send results — real people's addresses, never commit
+*.xlsx
+*.xls
+/*.csv
+email-results-*.json
+reports/
+
+# One-off campaign scripts; only the generic batch runner is published
+scripts/*
+!scripts/run-outreach-batch.mjs

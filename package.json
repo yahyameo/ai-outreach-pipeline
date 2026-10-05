@@ -1,0 +1,53 @@
+{
+  "name": "ai-outreach-pipeline",
+  "version": "1.0.0",
+  "description": "AI cold-outreach pipeline: find businesses on Google Maps (Apify), verify emails (Mails.so), research each website, draft evidence-based emails with OpenAI, and send through SendGrid.",
+  "license": "MIT",
+  "keywords": [
+    "outreach",
+    "cold-email",
+    "sendgrid",
+    "openai",
+    "apify",
+    "nestjs",
+    "lead-generation"
+  ],
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "nest build",
+    "test": "npm run build --silent && node --test dist/*.spec.js",
+    "start": "node dist/main.js",
+    "start:dev": "nest start --watch",
+    "import:leads": "npm run build --silent && node dist/import-leads.js",
+    "mail": "npm run build --silent && node dist/send-emails.js",
+    "outreach:batch": "npm run build --silent && node scripts/run-outreach-batch.mjs"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.1.0",
+    "@nestjs/core": "^11.1.0",
+    "@nestjs/mongoose": "^11.0.3",
+    "@nestjs/platform-express": "^11.1.0",
+    "@sendgrid/mail": "^8.1.5",
+    "apify-client": "^2.12.6",
+    "axios": "^1.11.0",
+    "cheerio": "^1.1.2",
+    "dotenv": "^16.5.0",
+    "he": "^1.2.0",
+    "mongoose": "^8.16.4",
+    "read-excel-file": "^9.3.2",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.0",
+    "@types/he": "^1.2.3",
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.0"
+  },
+  "overrides": {
+    "basic-ftp": "^6.2.2"
+  }
+}
